@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Hello World | Hexo</title>
+<title>Linear Regression | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -132,9 +132,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Hello World">
+        <h1 id="Linear Regression">
             
-	            Hello World
+	            Linear Regression
             
         </h1>
         <div class="post-meta">
@@ -163,7 +163,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/10/29</span>
+            <span class="date-meta">2018/10/30</span>
         </span>
         
     
@@ -174,15 +174,64 @@
     </div>
     
     <div class="post-body post-content">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="1-模型表达（Model-Representation）"><a href="#1-模型表达（Model-Representation）" class="headerlink" title="1. 模型表达（Model Representation）"></a>1. 模型表达（Model Representation）</h1><p>线性回归是机器学习的最基本的算法，线性回归是为了拟合变量之间的线性关系。开始之前先将变量含义定义清楚：</p>
+<p>$$x_{j}^{(i)}$$: 样本i中j特征的值</p>
+<p>$$x^{(i)}: 样本i所有特征值$$</p>
+<p>$$m: 样本总数$$</p>
+<p>$$n: 特征总数$$</p>
+<p>线性回归的函数模型如下：</p>
+<p>$$<br>h_{\theta }(x)=\theta _{0}+\theta <em>{1}x</em>{1}+\theta <em>{2}x</em>{2}+\theta <em>{3}x</em>{3}+ … + \theta <em>{n}x</em>{n}<br>$$</p>
+<p>精简表达式，用向量表达为：</p>
+<p>$$<br>h_{\theta }(x)= [\theta_{0} \quad      \theta_{1} \quad…\quad \theta_{n}]\left [\begin{matrix} x_{0}\ x_{1}\ …\ x_{n}\ \end{matrix} \right]  = \theta ^{T}x<br>$$</p>
+<p>注：对上述表达式中的其中x_{0}^{(i)}=0,  其中(i\in 1,…m)</p>
+<h1 id="2-损失函数-Cost-Function"><a href="#2-损失函数-Cost-Function" class="headerlink" title="2. 损失函数(Cost Function)"></a>2. 损失函数(Cost Function)</h1><p>损失函数表示的是模型预测的值与训练集中实际值的差距，我们的目标就是找出使得建模误差的平方和能够最小的模型参数。</p>
+<p>$$<br>J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}<br>$$</p>
+<h1 id="3-梯度下降-Gradient-Descent"><a href="#3-梯度下降-Gradient-Descent" class="headerlink" title="3. 梯度下降(Gradient Descent)"></a>3. 梯度下降(Gradient Descent)</h1><p>梯度下降就是一个用来求函数最小值的算法，梯度下降背后的思想是：开始时我们随机选择一个参数的组合($$\theta_{0},\theta_{1},…,\theta_{n}$$)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（local minimum）,因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global minimum）,选择不同的初始参数组合，可能会找到不同的局部最小值。</p>
+<p>批量梯度下降（batch gradient descent）算法的公式为：</p>
+<p>Repeat until convergence {</p>
+<p>$$<br>\theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial \theta_{j}}J(\theta)<br>$$</p>
+<p>}</p>
+<p>Repeat {</p>
+<p>$$<br> \theta_{j}:=\theta_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{i}) - y^{(i)})x_{j}^{(i)}<br>$$</p>
+<p>}              ( 每次同时更新所有\theta_j,  j=0,…n)</p>
+<p>其中\alpha是学习率（learning rate）,它决定了我们沿着能让代价函数下降程度最大的方向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速率乘以代价函数的导数。</p>
+<h1 id="4-特征缩放-Features-Scaling"><a href="#4-特征缩放-Features-Scaling" class="headerlink" title="4.特征缩放(Features Scaling)"></a>4.特征缩放(Features Scaling)</h1><p>在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯度下降算法更快地收敛。</p>
+<p>解决的方法是尝试将所有特征的尺度都尽量缩放到-1到1之间。最简单的方法是令：</p>
+<p>$$<br>x_{n}=\frac{x_{n}-\mu_{n}}{s_{n}}<br>$$</p>
+<p>其中, 其中\mu_{n}是平均值，是平均值，s_{n}$$是标准差</p>
+<h1 id="5-学习率-Learning-Rate"><a href="#5-学习率-Learning-Rate" class="headerlink" title="5.学习率(Learning Rate)"></a>5.学习率(Learning Rate)</h1><p>梯度下降算法的每次迭代受到学习率的影响，如果学习率α过小，则达到收敛所需的迭代次数会非常高；如果学习率α过大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。</p>
+<p>通常可以考虑尝试这些学习率：$$\alpha=0.01,\ 0.3,\ 0.1,\ 0.3,\ 1,\ 3,\ 10$$</p>
+<h1 id="6-多项式回归-Polynomial-Regression"><a href="#6-多项式回归-Polynomial-Regression" class="headerlink" title="6.多项式回归(Polynomial Regression)"></a>6.多项式回归(Polynomial Regression)</h1><p>线性回归并不适用于所有数据，有时我们需要曲线来适应我们的数据，比如一个二次方模型：</p>
+<p>$$<br>h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}<br>$$</p>
+<p>或者三次方模型：</p>
+<p>$$<br>h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}+\theta_{3}x_{3}^{3}<br>$$</p>
+<p><img src="/assets/Polynomial Regression.jpg" alt=""></p>
+<h1 id="7-正规方程"><a href="#7-正规方程" class="headerlink" title="7.正规方程"></a>7.正规方程</h1><p>到目前为止，求解损失函数最小值都是通过梯度下降算法，对于某些线性回复问题，正规方程是更好的解决方案。</p>
+<p>假设我们的训练集特征矩阵为$$X$$（包含了$$x_{0}=1$$）并且我们的训练集结果为向量$$y$$,则利用正规方程解出向量</p>
+<p>$$\theta=(X^{T}X)^{-1}X^{T}y$$， $$T$$表示矩阵转置，$$-1$$表示矩阵的逆</p>
+<p>梯度下降与正规方程的比较：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">梯度下降</th>
+<th style="text-align:center">正规方程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">需要选择学习率α</td>
+<td style="text-align:center">一次运算得出</td>
+</tr>
+<tr>
+<td style="text-align:center">当特征数量n大时也能较好适用</td>
+<td style="text-align:center">如果特征数量n较大则运算代价大，因为矩阵逆的计算时间复杂度为O(n3)，通常来说当n小于10000时还是可以接受的</td>
+</tr>
+<tr>
+<td style="text-align:center">适用于各种类型的模型</td>
+<td style="text-align:center">只适用于线性模型，不适合逻辑回归模型等其他模型</td>
+</tr>
+</tbody>
+</table>
 
     </div>
     
@@ -216,11 +265,11 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/10/30/Linear-Regression/" class="pre-post btn btn-default" title="Linear Regression">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Linear Regression</span>
-        </a>
     
+        <a href="/2018/10/29/hello-world/" class="next-post btn btn-default" title="Hello World">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Hello World</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
     
 </div>
 
@@ -262,7 +311,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-模型表达（Model-Representation）"><span class="toc-text">1. 模型表达（Model Representation）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-损失函数-Cost-Function"><span class="toc-text">2. 损失函数(Cost Function)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-梯度下降-Gradient-Descent"><span class="toc-text">3. 梯度下降(Gradient Descent)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-特征缩放-Features-Scaling"><span class="toc-text">4.特征缩放(Features Scaling)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-学习率-Learning-Rate"><span class="toc-text">5.学习率(Learning Rate)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-多项式回归-Polynomial-Regression"><span class="toc-text">6.多项式回归(Polynomial Regression)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-正规方程"><span class="toc-text">7.正规方程</span></a></li></ol>
         
     </div>
 </aside>
