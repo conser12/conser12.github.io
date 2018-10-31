@@ -75,13 +75,13 @@
 <body>
     <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="John Doe">
+        <a class="header-avatar" href="/" title="Chen Peijun">
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
         	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
             
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+                <h2> 人工智能来到 </h2>
             
     	</div>
     </div>
@@ -104,11 +104,11 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                                <a href="/categories/深度学习/"><i class="fa "></i>深度学习</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -130,12 +130,6 @@
             <div class="row">
                 <main class="col-md-8 main-content ">
                     
-    <div class="carousel">
-        <a href="javascript:" target="_blank">
-            <img src="/./img/head-img.jpg" alt="">
-        </a>
-    </div>
-
 
 
 
@@ -156,8 +150,8 @@
         <p class="brief">
             
                 1. 模型表达（Model Representation）线性回归是机器学习的最基本的算法，线性回归是为了拟合变量之间的线性关系。开始之前先将变量含义定义清楚：
-$$x_{j}^{(i)}$$: 样本i中j特征的值
-$$x^{(i)}...
+$x_{j}^{(i)}$: 样本i中j特征的值
+$x^{(i)}$: ...
             
         </p>
     </div>
@@ -169,8 +163,8 @@ $$x^{(i)}...
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
+        <a href="/categories/机器学习">
+            机器学习
         </a>
     </span>
     
@@ -180,6 +174,14 @@ $$x^{(i)}...
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/AI" title="AI">
+                        AI
+                    </a>
+                
+                    <a href="/tags/笔记" title="笔记">
+                        笔记
+                    </a>
                 
             
         </span>
@@ -295,53 +297,23 @@ $$x^{(i)}...
 
         
         
+  <div class="widget">
+    <h3 class="title">Tag Cloud</h3>
+    <div class="content tag-cloud">
+        
+            <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a>
+        
+    </div>
+  </div>
+
+
+        
+        
     <div class="widget">
-        <h3 class="title">Notification</h3>
-        <div class="notification">
-            <p>
-    主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br>
-    主题使用：<a href="https://github.com/shenliyang/hexo-theme-snippet/blob/master/README.md#常见问题" title="" target="_blank">常见使用问题</a> <br>
-    支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers">Star一下</a>
-</p>
-        </div>
+        <h3 class="title">Categories</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/"><i class="fa" aria-hidden="true">机器学习</i></a><span class="category-list-count">1</span></li></ul>
     </div>
 
-        
-        
-    <div class="widget">
-      <h3 class="title">Social</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/shenliyang" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="git fa fa-git"></i>
-			    </a>
-            
-	            <a href="mailto:snippet@91h5.cc" rel="external nofollow" title="邮箱" target="_blank">
-			    	<i class="envelope-o fa fa-envelope-o"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
-			    	<i class="qq fa fa-qq"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="微信" target="_blank">
-			    	<i class="weixin fa fa-weixin"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
-			    	<i class="users fa fa-users"></i>
-			    </a>
-            
-	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
-			    	<i class="feed fa fa-feed"></i>
-			    </a>
-            
-        </div>
-    </div>
-
-
-        
-        
 
         
         
@@ -350,9 +322,6 @@ $$x^{(i)}...
         <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/"><i class="fa" aria-hidden="true">2018年10月</i></a><span class="archive-list-count">2</span></li></ul>
     </div>
 
-
-        
-        
 
         
         
@@ -419,6 +388,23 @@ $$x^{(i)}...
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

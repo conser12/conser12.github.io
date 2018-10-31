@@ -75,13 +75,13 @@
 <body>
     <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="John Doe">
+        <a class="header-avatar" href="/" title="Chen Peijun">
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
         	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
             
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+                <h2> 人工智能来到 </h2>
             
     	</div>
     </div>
@@ -104,11 +104,11 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                                <a href="/categories/深度学习/"><i class="fa "></i>深度学习</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -142,8 +142,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
+        <a href="/categories/机器学习">
+            机器学习
         </a>
     </span>
     
@@ -153,6 +153,14 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/AI" title="AI">
+                        AI
+                    </a>
+                
+                    <a href="/tags/笔记" title="笔记">
+                        笔记
+                    </a>
                 
             
         </span>
@@ -175,41 +183,42 @@
     
     <div class="post-body post-content">
         <h1 id="1-模型表达（Model-Representation）"><a href="#1-模型表达（Model-Representation）" class="headerlink" title="1. 模型表达（Model Representation）"></a>1. 模型表达（Model Representation）</h1><p>线性回归是机器学习的最基本的算法，线性回归是为了拟合变量之间的线性关系。开始之前先将变量含义定义清楚：</p>
-<p>$$x_{j}^{(i)}$$: 样本i中j特征的值</p>
-<p>$$x^{(i)}: 样本i所有特征值$$</p>
-<p>$$m: 样本总数$$</p>
-<p>$$n: 特征总数$$</p>
+<p>$x_{j}^{(i)}$: 样本i中j特征的值</p>
+<p>$x^{(i)}$: 样本i所有特征值</p>
+<p>$m$: 样本总数</p>
+<p>$n$: 特征总数</p>
 <p>线性回归的函数模型如下：</p>
-<p>$$<br>h_{\theta }(x)=\theta _{0}+\theta <em>{1}x</em>{1}+\theta <em>{2}x</em>{2}+\theta <em>{3}x</em>{3}+ … + \theta <em>{n}x</em>{n}<br>$$</p>
-<p>精简表达式，用向量表达为：</p>
-<p>$$<br>h_{\theta }(x)= [\theta_{0} \quad      \theta_{1} \quad…\quad \theta_{n}]\left [\begin{matrix} x_{0}\ x_{1}\ …\ x_{n}\ \end{matrix} \right]  = \theta ^{T}x<br>$$</p>
-<p>注：对上述表达式中的其中x_{0}^{(i)}=0,  其中(i\in 1,…m)</p>
+<script type="math/tex; mode=display">
+h_{\theta }(x)=\theta _{0}+\theta _{1}x_{1}+\theta _{2}x_{2}+\theta _{3}x_{3}+ ... + \theta _{n}x_{n}</script><p>精简表达式，用向量表达为：</p>
+<script type="math/tex; mode=display">
+h_{\theta }(x)= [\theta_{0} \quad      \theta_{1} \quad...\quad \theta_{n}]\left [\begin{matrix} x_{0}\\ x_{1}\\ ...\\ x_{n}\\ \end{matrix} \right]  = \theta ^{T}x</script><p>注：对上述表达式中的其中$x_{0}^{(i)}=0$,  其中$(i\in 1,…m)$</p>
 <h1 id="2-损失函数-Cost-Function"><a href="#2-损失函数-Cost-Function" class="headerlink" title="2. 损失函数(Cost Function)"></a>2. 损失函数(Cost Function)</h1><p>损失函数表示的是模型预测的值与训练集中实际值的差距，我们的目标就是找出使得建模误差的平方和能够最小的模型参数。</p>
-<p>$$<br>J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}<br>$$</p>
-<h1 id="3-梯度下降-Gradient-Descent"><a href="#3-梯度下降-Gradient-Descent" class="headerlink" title="3. 梯度下降(Gradient Descent)"></a>3. 梯度下降(Gradient Descent)</h1><p>梯度下降就是一个用来求函数最小值的算法，梯度下降背后的思想是：开始时我们随机选择一个参数的组合($$\theta_{0},\theta_{1},…,\theta_{n}$$)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（local minimum）,因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global minimum）,选择不同的初始参数组合，可能会找到不同的局部最小值。</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}</script><h1 id="3-梯度下降-Gradient-Descent"><a href="#3-梯度下降-Gradient-Descent" class="headerlink" title="3. 梯度下降(Gradient Descent)"></a>3. 梯度下降(Gradient Descent)</h1><p>梯度下降就是一个用来求函数最小值的算法，梯度下降背后的思想是：开始时我们随机选择一个参数的组合(<script type="math/tex">\theta_{0},\theta_{1},...,\theta_{n}</script>)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（local minimum）,因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global minimum）,选择不同的初始参数组合，可能会找到不同的局部最小值。</p>
 <p>批量梯度下降（batch gradient descent）算法的公式为：</p>
 <p>Repeat until convergence {</p>
-<p>$$<br>\theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial \theta_{j}}J(\theta)<br>$$</p>
-<p>}</p>
+<script type="math/tex; mode=display">
+\theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial \theta_{j}}J(\theta)</script><p>}</p>
 <p>Repeat {</p>
-<p>$$<br> \theta_{j}:=\theta_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{i}) - y^{(i)})x_{j}^{(i)}<br>$$</p>
-<p>}              ( 每次同时更新所有\theta_j,  j=0,…n)</p>
-<p>其中\alpha是学习率（learning rate）,它决定了我们沿着能让代价函数下降程度最大的方向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速率乘以代价函数的导数。</p>
+<script type="math/tex; mode=display">
+ \theta_{j}:=\theta_{j}-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{i}) - y^{(i)})x_{j}^{(i)}</script><p>}              ( 每次同时更新所有$\theta_j,  j=0,…n$)</p>
+<p>其中$\alpha$是学习率（learning rate）,它决定了我们沿着能让代价函数下降程度最大的方向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速率乘以代价函数的导数。</p>
 <h1 id="4-特征缩放-Features-Scaling"><a href="#4-特征缩放-Features-Scaling" class="headerlink" title="4.特征缩放(Features Scaling)"></a>4.特征缩放(Features Scaling)</h1><p>在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯度下降算法更快地收敛。</p>
 <p>解决的方法是尝试将所有特征的尺度都尽量缩放到-1到1之间。最简单的方法是令：</p>
-<p>$$<br>x_{n}=\frac{x_{n}-\mu_{n}}{s_{n}}<br>$$</p>
-<p>其中, 其中\mu_{n}是平均值，是平均值，s_{n}$$是标准差</p>
+<script type="math/tex; mode=display">
+x_{n}=\frac{x_{n}-\mu_{n}}{s_{n}}</script><p>其中, 其中$\mu_{n}$是平均值，是平均值，$s_{n}$是标准差</p>
 <h1 id="5-学习率-Learning-Rate"><a href="#5-学习率-Learning-Rate" class="headerlink" title="5.学习率(Learning Rate)"></a>5.学习率(Learning Rate)</h1><p>梯度下降算法的每次迭代受到学习率的影响，如果学习率α过小，则达到收敛所需的迭代次数会非常高；如果学习率α过大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。</p>
-<p>通常可以考虑尝试这些学习率：$$\alpha=0.01,\ 0.3,\ 0.1,\ 0.3,\ 1,\ 3,\ 10$$</p>
+<p>通常可以考虑尝试这些学习率：<script type="math/tex">\alpha=0.01,\ 0.3,\ 0.1,\ 0.3,\ 1,\ 3,\ 10</script></p>
 <h1 id="6-多项式回归-Polynomial-Regression"><a href="#6-多项式回归-Polynomial-Regression" class="headerlink" title="6.多项式回归(Polynomial Regression)"></a>6.多项式回归(Polynomial Regression)</h1><p>线性回归并不适用于所有数据，有时我们需要曲线来适应我们的数据，比如一个二次方模型：</p>
-<p>$$<br>h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}<br>$$</p>
-<p>或者三次方模型：</p>
-<p>$$<br>h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}+\theta_{3}x_{3}^{3}<br>$$</p>
-<p><img src="/assets/Polynomial Regression.jpg" alt=""></p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}</script><p>或者三次方模型：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}^{2}+\theta_{3}x_{3}^{3}</script><p><img src="/assets/Polynomial Regression.jpg" alt=""></p>
 <h1 id="7-正规方程"><a href="#7-正规方程" class="headerlink" title="7.正规方程"></a>7.正规方程</h1><p>到目前为止，求解损失函数最小值都是通过梯度下降算法，对于某些线性回复问题，正规方程是更好的解决方案。</p>
-<p>假设我们的训练集特征矩阵为$$X$$（包含了$$x_{0}=1$$）并且我们的训练集结果为向量$$y$$,则利用正规方程解出向量</p>
-<p>$$\theta=(X^{T}X)^{-1}X^{T}y$$， $$T$$表示矩阵转置，$$-1$$表示矩阵的逆</p>
+<p>假设我们的训练集特征矩阵为<script type="math/tex">X</script>（包含了<script type="math/tex">x_{0}=1</script>）并且我们的训练集结果为向量<script type="math/tex">y</script>,则利用正规方程解出向量</p>
+<p><script type="math/tex">\theta=(X^{T}X)^{-1}X^{T}y</script>， <script type="math/tex">T</script>表示矩阵转置，<script type="math/tex">-1</script>表示矩阵的逆</p>
 <p>梯度下降与正规方程的比较：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -232,6 +241,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
     </div>
     
@@ -254,8 +264,6 @@
     <div class="post-footer">
         <div>
             
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
-            
         </div>
         <div>
             
@@ -276,28 +284,7 @@
 
     <div id="comments">
         
-    
-    <div id="vcomments" class="valine"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/assets/valine.min.js"></script>
-
-    <script>
-        new Valine({
-            av: AV,
-            el: '#vcomments',
-            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
-            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
-            placeholder: '说点什么吧',
-            notify: false,
-            verify: false,
-            avatar: 'mm',
-            meta: 'nick,mail'.split(','),
-            pageSize: '10',
-            path: window.location.pathname,
-            lang: ''.toLowerCase()
-        })
-    </script>
-
+   <p>评论系统未开启，无法评论！</p>
 
     </div>
 
@@ -364,6 +351,23 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>
